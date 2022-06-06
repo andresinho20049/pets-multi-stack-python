@@ -5,6 +5,7 @@ from .models import Adocao
 from pet.serializers import PetSerializers
 from pet.models import Pet
 
+
 class AdocaoSerializer(serializers.ModelSerializer):
     pet = PetSerializers(many=False, read_only=True)
     pet_id = serializers.PrimaryKeyRelatedField(
@@ -12,7 +13,7 @@ class AdocaoSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        model = Adocao 
+        model = Adocao
         fields = ("id", "email", "valor", "pet", "pet_id")
 
     def create(self, validated_data):
@@ -25,4 +26,3 @@ class AdocaoSerializer(serializers.ModelSerializer):
         if value > 100:
             raise serializers.ValidationError("Valor deve ser menor que 100")
         return value
-            

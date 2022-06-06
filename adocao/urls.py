@@ -3,6 +3,4 @@ from django.views.decorators.csrf import csrf_exempt
 
 from .views import AdocaoList
 
-urlpatterns = [
-    path('', AdocaoList.as_view())
-]
+urlpatterns = [path("", AdocaoList.as_view())]

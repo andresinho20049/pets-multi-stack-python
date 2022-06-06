@@ -18,7 +18,10 @@ class AdocaoList(APIView):
             deserializer.save()
             return Response(deserializer.data, status=HTTP_201_CREATED)
         else:
-            return Response({
-                "errors": deserializer.errors,
-                "message": "Houveram erros de validação"
-            }, status=HTTP_400_BAD_REQUEST)
+            return Response(
+                {
+                    "errors": deserializer.errors,
+                    "message": "Houveram erros de validação",
+                },
+                status=HTTP_400_BAD_REQUEST,
+            )
